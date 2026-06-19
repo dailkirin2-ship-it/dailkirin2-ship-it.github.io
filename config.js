@@ -83,7 +83,7 @@ const SRANDEV_CONFIG = {
 
   /* ── BE APP ─────────────────────────────────────── */
   be_app: {
-    apk_file: "boldandeasy.apk",  // имя файла APK (лежит рядом с index.html)
+    apk_file: "Boldandeasy.apk",  // имя файла APK (лежит рядом с index.html)
   },
 
 };
