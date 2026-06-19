@@ -13,7 +13,7 @@ const SRANDEV_CONFIG = {
     telegram_stars_bot: "https://t.me/BEISTARS_bot",      // бот BE Stars
     telegram_chat:      "https://t.me/beistarsreviews",   // чат/отзывы
     github:             "",   // https://github.com/твой_ник
-    itchio:             "",   // https://твой_ник.itch.io
+    itchio:             "https://daniellechoster.itch.io/",   // https://твой_ник.itch.io
     vk:                 "",   // https://vk.com/твоя_страница
     // добавь любую соцсеть сюда
   },
@@ -41,11 +41,11 @@ const SRANDEV_CONFIG = {
     },
     {
       id:          "game2",
-      title:       "НАЗВАНИЕ",         // ← вставь название
-      genre_en:    "Genre",
-      genre_ru:    "Жанр",
-      desc_en:     "Short description.",
-      desc_ru:     "Краткое описание.",
+      title:       "LOOP PROTOCOL",         // ← вставь название
+      genre_en:    "puzzle",
+      genre_ru:    "пазл",
+      desc_en:     "Program. Observe. Edit.",
+      desc_ru:     "Програмируй.Наблюдай.Редактируй.",
       platform:    "Windows + Android",
       engine:      "Unity",
       status:      "done",
@@ -54,22 +54,22 @@ const SRANDEV_CONFIG = {
       featured:    false,
       gif:         "",                 // "" = без картинки
       image:       "",                 // обычная картинка вместо гифки: "game2.png"
-      link_itch:   "",
+      link_itch:   "https://daniellechoster.itch.io/loop-protocol",
       link_github: "",
       link_play:   "",
     },
     {
       id:          "game3",
-      title:       "НАЗВАНИЕ",
-      genre_en:    "Genre",
-      genre_ru:    "Жанр",
-      desc_en:     "Short description.",
-      desc_ru:     "Краткое описание.",
-      platform:    "Android",
+      title:       "LATCH",
+      genre_en:    "coop-survival",
+      genre_ru:    "кооперативный выживач",
+      desc_en:     "Space. An old ship. Co-op. Hope for survival.",
+      desc_ru:     "Космос. старый корабль. Кооператив. Надежда на жизнь.",
+      platform:    "Windows",
       engine:      "Unity",
-      status:      "done",
-      status_en:   "Released",
-      status_ru:   "Выпущено",
+      status:      "wip",
+      status_en:   "In development",
+      status_ru:   "В разработке",
       featured:    false,
       gif:         "",
       image:       "",
