@@ -12,15 +12,15 @@
 
 /* HERO */
 .hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 130px 48px 80px;
   position: relative;
   z-index: 1;
 }
+.hero-left { max-width: 640px; }
 
 .hero-eyebrow {
   display: flex; align-items: center; gap: 12px;
@@ -56,49 +56,6 @@
 }
 
 .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-
-/* RIGHT SIDE */
-.hero-right {
-  display: flex; flex-direction: column;
-  gap: 20px; align-items: flex-start;
-}
-
-.tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-.tag {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 3px; padding: 7px 14px;
-  font-size: 10px; font-weight: 600;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--muted); transition: all 0.2s;
-}
-.tag.accent {
-  border-color: var(--border-warm);
-  color: var(--orange);
-  background: rgba(232,98,26,0.06);
-}
-.tag:hover { color: var(--text); border-color: var(--border-warm); }
-
-.stat-block {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 8px; overflow: hidden;
-  width: 100%;
-}
-.stat-cell {
-  background: var(--card); padding: 22px 20px;
-  transition: background 0.2s;
-}
-.stat-cell:hover { background: var(--card2); }
-.stat-n {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 42px; line-height: 1;
-  color: var(--orange); margin-bottom: 4px;
-}
-.stat-l {
-  font-size: 10px; color: var(--muted);
-  letter-spacing: 1.5px; text-transform: uppercase;
-}
 
 /* SCROLL HINT */
 .scroll-hint {
@@ -238,12 +195,8 @@
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .hero {
-    grid-template-columns: 1fr;
     padding: 100px 20px 60px;
-    gap: 44px;
   }
-  .hero-right { align-items: flex-start; }
-  .stat-block { max-width: 100%; }
   .scroll-hint { left: 20px; }
   .strip-grid { grid-template-columns: 1fr; }
   .strip-item { border-right: none; border-bottom: 1px solid var(--border); }
@@ -313,45 +266,14 @@
     <h1 class="hero-name">SRAN<br>.DEV</h1>
 
     <p class="hero-desc"
-       data-en="Games that feel like something. Apps that actually work. Personal brand that doesn't apologize. Built on Unity, shipped with attitude."
-       data-ru="Игры с характером. Приложения, которые работают. Личный бренд без извинений. Сделано на Unity, выпущено с характером.">
-      Games that feel like something. Apps that actually work. Personal brand that doesn't apologize. Built on Unity, shipped with attitude.
+       data-en="Currently building OUTPATIENT, a Unity roguelike. This is the studio behind it — games made with attitude, no bloat."
+       data-ru="Сейчас в разработке OUTPATIENT — рогалик на Unity. Это студия, которая его делает — игры с характером, без лишнего.">
+      Currently building OUTPATIENT, a Unity roguelike. This is the studio behind it — games made with attitude, no bloat.
     </p>
 
     <div class="hero-cta">
-      <a href="games.html" class="btn-primary" data-en="→ See Games" data-ru="→ Игры">→ See Games</a>
+      <a href="games.html#outpatient" class="btn-primary" data-en="→ See The Game" data-ru="→ Смотреть игру">→ See The Game</a>
       <a href="studio.html" class="btn-ghost" data-en="About Studio" data-ru="О студии">About Studio</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="tag-cloud">
-      <span class="tag accent" data-en="GAME DEV" data-ru="РАЗРАБОТКА ИГР">GAME DEV</span>
-      <span class="tag" data-en="UNITY" data-ru="UNITY">UNITY</span>
-      <span class="tag accent" data-en="INDIE STUDIO" data-ru="ИНДИ СТУДИЯ">INDIE STUDIO</span>
-      <span class="tag" data-en="MOBILE APPS" data-ru="ПРИЛОЖЕНИЯ">MOBILE APPS</span>
-      <span class="tag" data-en="PERSONAL BRAND" data-ru="ЛИЧНЫЙ БРЕНД">PERSONAL BRAND</span>
-      <span class="tag accent" data-en="SRAN.DEV" data-ru="SRAN.DEV">SRAN.DEV</span>
-      <span class="tag" data-en="PROMO &amp; MARKETING" data-ru="ПРОДВИЖЕНИЕ">PROMO &amp; MARKETING</span>
-    </div>
-
-    <div class="stat-block">
-      <div class="stat-cell">
-        <div class="stat-n">05+</div>
-        <div class="stat-l" data-en="Projects shipped" data-ru="Проектов выпущено">Projects shipped</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-n">∞</div>
-        <div class="stat-l" data-en="Ambition" data-ru="Амбиций">Ambition</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-n">24/7</div>
-        <div class="stat-l" data-en="Online" data-ru="Онлайн">Online</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-n">0</div>
-        <div class="stat-l" data-en="Compromises" data-ru="Компромиссов">Compromises</div>
-      </div>
     </div>
   </div>
 
@@ -361,47 +283,11 @@
   </div>
 </section>
 
-<!-- ══ SERVICES STRIP ══ -->
-<div class="services-strip">
-  <div class="strip-grid">
-    <a href="studio.html#gamedev" class="strip-item hov-target">
-      <div class="strip-num">01</div>
-      <div class="strip-title" data-en="GAME DEV" data-ru="РАЗРАБОТКА ИГР">GAME DEV</div>
-      <div class="strip-desc"
-           data-en="Mobile, PC, browser — full cycle from concept to release on Unity."
-           data-ru="Мобилки, PC, браузер — полный цикл от концепта до релиза на Unity.">
-        Mobile, PC, browser — full cycle from concept to release on Unity.
-      </div>
-      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
-    </a>
-    <a href="studio.html#appdev" class="strip-item hov-target">
-      <div class="strip-num">02</div>
-      <div class="strip-title" data-en="APP DEV" data-ru="ПРИЛОЖЕНИЯ">APP DEV</div>
-      <div class="strip-desc"
-           data-en="Android & iOS apps. Lean, fast, built right."
-           data-ru="Android и iOS приложения. Компактно, быстро, правильно.">
-        Android & iOS apps. Lean, fast, built right.
-      </div>
-      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
-    </a>
-    <a href="studio.html#promo" class="strip-item hov-target">
-      <div class="strip-num">03</div>
-      <div class="strip-title" data-en="PROJECT PROMO" data-ru="ПРОДВИЖЕНИЕ">PROJECT PROMO</div>
-      <div class="strip-desc"
-           data-en="Personal brand, landing pages, social presence for your game."
-           data-ru="Личный бренд, лендинги, соцсети для вашей игры.">
-        Personal brand, landing pages, social presence for your game.
-      </div>
-      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
-    </a>
-  </div>
-</div>
-
 <!-- ══ FEATURED GAME ══ -->
 <section class="featured-section">
   <div class="section-wrap">
     <div class="reveal">
-      <div class="s-label" data-en="Featured Project" data-ru="Главный проект">Featured Project</div>
+      <div class="s-label" data-en="Currently building" data-ru="Сейчас в разработке">Currently building</div>
       <h2 class="s-title" data-en="LATEST <em>GAME</em>" data-ru="ПОСЛЕДНЯЯ <em>ИГРА</em>">LATEST <em>GAME</em></h2>
     </div>
 
@@ -430,6 +316,42 @@
     </div>
   </div>
 </section>
+
+<!-- ══ SERVICES STRIP ══ -->
+<div class="services-strip">
+  <div class="strip-grid">
+    <a href="studio.html#gamedev" class="strip-item hov-target">
+      <div class="strip-num">01</div>
+      <div class="strip-title" data-en="GAME DEV" data-ru="РАЗРАБОТКА ИГР">GAME DEV</div>
+      <div class="strip-desc"
+           data-en="Mobile, PC, browser — full cycle on Unity."
+           data-ru="Мобилки, PC, браузер — полный цикл на Unity.">
+        Mobile, PC, browser — full cycle on Unity.
+      </div>
+      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
+    </a>
+    <a href="studio.html#appdev" class="strip-item hov-target">
+      <div class="strip-num">02</div>
+      <div class="strip-title" data-en="APP DEV" data-ru="ПРИЛОЖЕНИЯ">APP DEV</div>
+      <div class="strip-desc"
+           data-en="Android & iOS apps. Lean and built right."
+           data-ru="Android и iOS приложения. Компактно и правильно.">
+        Android & iOS apps. Lean and built right.
+      </div>
+      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
+    </a>
+    <a href="boldandeasy.html" class="strip-item hov-target">
+      <div class="strip-num">03</div>
+      <div class="strip-title" data-en="BOLD &amp; EASY" data-ru="BOLD &amp; EASY">BOLD &amp; EASY</div>
+      <div class="strip-desc"
+           data-en="Where it all started — Telegram ecosystem &amp; app."
+           data-ru="Откуда всё началось — экосистема и приложение в Telegram.">
+        Where it all started — Telegram ecosystem & app.
+      </div>
+      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
+    </a>
+  </div>
+</div>
 
 <!-- ══ CONTACT STRIP ══ -->
 <div class="contact-strip">
