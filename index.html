@@ -3,388 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>sran.dev — Danielle Choster Game Studio</title>
-<meta name="description" content="sran.dev — indie game studio by Danielle Choster. Games, apps, Bold & Easy.">
-<meta name="theme-color" content="#E8621A">
+<title>SRAN.DEV — Indie Game Studio</title>
+<meta name="description" content="Indie game studio specializing in Unity development. Currently building OUTPATIENT roguelike.">
+<meta name="theme-color" content="#FF6B00">
 <link rel="stylesheet" href="main.css">
-<style>
-/* ══ INDEX-SPECIFIC ══ */
-
-/* HERO */
-.hero {
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 130px 48px 80px;
-  position: relative;
-  z-index: 1;
-}
-.hero-left { max-width: 640px; }
-
-.hero-eyebrow {
-  display: flex; align-items: center; gap: 12px;
-  margin-bottom: 24px;
-}
-.eyebrow-line { width: 28px; height: 1px; background: var(--orange); }
-.eyebrow-text {
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--orange);
-}
-
-.hero-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(64px, 9vw, 118px);
-  line-height: 0.9; letter-spacing: 2px;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-.hero-name-thin {
-  font-family: 'Inter', sans-serif;
-  font-weight: 200;
-  font-size: clamp(20px, 3vw, 38px);
-  letter-spacing: 8px; text-transform: uppercase;
-  color: var(--faint); line-height: 1;
-  display: block; margin-bottom: 12px;
-}
-
-.hero-desc {
-  font-size: 15px; font-weight: 300;
-  line-height: 1.8; color: var(--faint);
-  max-width: 420px; margin-bottom: 40px;
-}
-
-.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-
-/* SCROLL HINT */
-.scroll-hint {
-  position: absolute; bottom: 32px; left: 48px;
-  display: flex; align-items: center; gap: 12px;
-  color: var(--muted); font-size: 9px;
-  letter-spacing: 3px; text-transform: uppercase; z-index: 1;
-}
-.scroll-bar {
-  width: 36px; height: 1px;
-  background: linear-gradient(to right, var(--orange), transparent);
-}
-
-/* ══ SERVICES STRIP ══ */
-.services-strip {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  position: relative; z-index: 1;
-}
-.strip-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-}
-.strip-item {
-  padding: 48px 40px;
-  border-right: 1px solid var(--border);
-  position: relative;
-  transition: background 0.25s;
-  text-decoration: none; color: var(--text);
-  display: block;
-}
-.strip-item:last-child { border-right: none; }
-.strip-item:hover { background: var(--card); }
-.strip-item::after {
-  content: ''; position: absolute;
-  bottom: 0; left: 40px; right: 40px; height: 1px;
-  background: linear-gradient(to right, var(--orange), transparent);
-  opacity: 0; transition: opacity 0.25s;
-}
-.strip-item:hover::after { opacity: 1; }
-.strip-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px; letter-spacing: 3px;
-  color: var(--muted); margin-bottom: 14px;
-}
-.strip-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px; letter-spacing: 1px;
-  color: var(--text); margin-bottom: 10px;
-}
-.strip-desc {
-  font-size: 12px; color: var(--muted);
-  line-height: 1.7; font-weight: 300;
-}
-.strip-arrow {
-  display: inline-block; margin-top: 16px;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 2px; color: var(--orange);
-  opacity: 0; transform: translateX(-6px);
-  transition: all 0.2s;
-}
-.strip-item:hover .strip-arrow { opacity: 1; transform: none; }
-
-/* ══ FEATURED GAME ══ */
-.featured-section { position: relative; z-index: 1; }
-
-.featured-card {
-  position: relative;
-  border: 1px solid var(--border);
-  border-radius: 12px; overflow: hidden;
-  min-height: 440px;
-  display: grid; grid-template-columns: 1fr 1fr;
-  align-items: center;
-  background: var(--card);
-  margin-top: 60px;
-}
-.featured-left { padding: 56px 48px; position: relative; z-index: 2; }
-.feat-tag {
-  display: inline-block;
-  font-size: 9px; font-weight: 700;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--orange); border: 1px solid var(--border-warm);
-  border-radius: 100px; padding: 5px 14px; margin-bottom: 24px;
-}
-.feat-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(52px, 7vw, 88px);
-  letter-spacing: 3px; line-height: 0.9;
-  color: var(--text); margin-bottom: 20px;
-}
-.feat-desc {
-  font-size: 13px; font-weight: 300;
-  color: var(--faint); line-height: 1.8;
-  margin-bottom: 32px; max-width: 360px;
-}
-.feat-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-
-/* GIF preview */
-.featured-right {
-  height: 100%;
-  position: relative; overflow: hidden;
-  border-left: 1px solid var(--border);
-}
-.featured-right img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: 0.85;
-  transition: opacity 0.3s;
-}
-.featured-card:hover .featured-right img { opacity: 1; }
-.featured-right .gif-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to right, var(--card) 0%, transparent 40%);
-}
-
-/* ══ CONTACT MINI ══ */
-.contact-strip {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  position: relative; z-index: 1;
-}
-.contact-strip-inner {
-  display: flex; align-items: center;
-  justify-content: space-between; gap: 32px;
-  flex-wrap: wrap;
-}
-.contact-strip-text h3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 40px; letter-spacing: 2px; color: var(--text);
-  margin-bottom: 6px;
-}
-.contact-strip-text p {
-  font-size: 13px; color: var(--muted); font-weight: 300;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .hero {
-    padding: 100px 20px 60px;
-  }
-  .scroll-hint { left: 20px; }
-  .strip-grid { grid-template-columns: 1fr; }
-  .strip-item { border-right: none; border-bottom: 1px solid var(--border); }
-  .strip-item:last-child { border-bottom: none; }
-  .featured-card {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .featured-right { height: 220px; border-left: none; border-top: 1px solid var(--border); }
-  .featured-right .gif-overlay { background: linear-gradient(to bottom, var(--card) 0%, transparent 40%); }
-  .featured-left { padding: 36px 24px; }
-  .contact-strip-inner { flex-direction: column; align-items: flex-start; }
-}
-</style>
 </head>
 <body>
 
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="curRing"></div>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-
-<!-- ══ NAV ══ -->
-<nav id="mainNav">
-  <a href="index.html" class="nav-logo">
-    <span class="nav-dot"></span>
-    SRAN<span style="color:var(--orange)">.</span>DEV
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html" data-en="Home" data-ru="Главная">Home</a></li>
-    <li><a href="studio.html" data-en="Studio" data-ru="Студия">Studio</a></li>
-    <li><a href="games.html" data-en="Games" data-ru="Игры">Games</a></li>
-    <li><a href="boldandeasy.html" data-en="Bold&amp;Easy" data-ru="Bold&amp;Easy">Bold&amp;Easy</a></li>
-    <li><a href="contact.html" data-en="Contact" data-ru="Контакты">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
-    </div>
-    <a href="https://t.me/DanielleChoster" class="btn-nav-tg" target="_blank">↗ Telegram</a>
-    <div class="mobile-toggle" id="burger"><span></span><span></span><span></span></div>
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-logo">
+    <span class="logo-dot"></span>
+    <span>SRAN.DEV</span>
+  </div>
+  <div class="nav-links">
+    <a href="#game" class="nav-link">Game</a>
+    <a href="#studio" class="nav-link">Studio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-social">
+    <a href="https://t.me/CPAHb_dev" target="_blank" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+      </svg>
+      Updates
+    </a>
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" data-en="Home" data-ru="Главная">Home</a>
-  <a href="studio.html" data-en="Studio" data-ru="Студия">Studio</a>
-  <a href="games.html" data-en="Games" data-ru="Игры">Games</a>
-  <a href="boldandeasy.html" data-en="Bold&amp;Easy" data-ru="Bold&amp;Easy">Bold&amp;Easy</a>
-  <a href="contact.html" data-en="Contact" data-ru="Контакты">Contact</a>
-  <div class="lang-row">
-    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
-  </div>
-</div>
-
-<!-- ══ HERO ══ -->
+<!-- Hero Section with 3D -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <div class="eyebrow-line"></div>
-      <span class="eyebrow-text" data-en="Indie Game Studio · Unity" data-ru="Инди-студия · Unity">Indie Game Studio · Unity</span>
+  <div class="hero-bg">
+    <canvas id="heroCanvas"></canvas>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="tag-dot"></span>
+      INDIE GAME STUDIO
     </div>
 
-    <span class="hero-name-thin" data-en="Danielle Choster" data-ru="Danielle Choster">Danielle Choster</span>
-    <h1 class="hero-name">SRAN<br>.DEV</h1>
+    <h1 class="hero-title">
+      <span class="title-line">BUILDING</span>
+      <span class="title-line title-featured">GAMES</span>
+      <span class="title-line">WITH UNITY</span>
+    </h1>
 
-    <p class="hero-desc"
-       data-en="Currently building OUTPATIENT, a Unity roguelike. This is the studio behind it — games made with attitude, no bloat."
-       data-ru="Сейчас в разработке OUTPATIENT — рогалик на Unity. Это студия, которая его делает — игры с характером, без лишнего.">
-      Currently building OUTPATIENT, a Unity roguelike. This is the studio behind it — games made with attitude, no bloat.
+    <p class="hero-desc">
+      Currently developing <strong>OUTPATIENT</strong> — a roguelike that pushes boundaries.
+      Solo developer, full-time creator, no compromise.
     </p>
 
     <div class="hero-cta">
-      <a href="games.html#outpatient" class="btn-primary" data-en="→ See The Game" data-ru="→ Смотреть игру">→ See The Game</a>
-      <a href="studio.html" class="btn-ghost" data-en="About Studio" data-ru="О студии">About Studio</a>
+      <a href="#game" class="btn btn-primary">
+        <span>See The Game</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="https://t.me/CPAHb_dev" target="_blank" class="btn btn-ghost">
+        Follow Development
+      </a>
     </div>
   </div>
 
-  <div class="scroll-hint">
-    <div class="scroll-bar"></div>
-    <span data-en="SCROLL" data-ru="СКРОЛЛ">SCROLL</span>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>SCROLL</span>
   </div>
 </section>
 
-<!-- ══ FEATURED GAME ══ -->
-<section class="featured-section">
-  <div class="section-wrap">
-    <div class="reveal">
-      <div class="s-label" data-en="Currently building" data-ru="Сейчас в разработке">Currently building</div>
-      <h2 class="s-title" data-en="LATEST <em>GAME</em>" data-ru="ПОСЛЕДНЯЯ <em>ИГРА</em>">LATEST <em>GAME</em></h2>
+<!-- Featured Game Section -->
+<section id="game" class="game-section">
+  <div class="section-container">
+    <div class="section-header">
+      <div class="section-label">
+        <div class="label-line"></div>
+        IN ACTIVE DEVELOPMENT
+      </div>
+      <h2 class="section-title">
+        OUT<span class="title-outline">PATIENT</span>
+      </h2>
     </div>
 
-    <div class="featured-card reveal reveal-d1">
-      <div class="featured-left">
-        <span class="feat-tag" data-en="🔴 ACTIVE · UNITY" data-ru="🔴 В РАЗРАБОТКЕ · UNITY">🔴 ACTIVE · UNITY</span>
-        <div class="feat-name">OUT<br>PATIENT</div>
-        <p class="feat-desc"
-           data-en="A roguelike built in Unity. Currently in active development — follow updates on Telegram."
-           data-ru="Рогалик на Unity. Активная разработка — следи за обновлениями в Telegram.">
-          A roguelike built in Unity. Currently in active development — follow updates on Telegram.
-        </p>
-        <div class="feat-cta">
-          <a href="games.html#outpatient" class="btn-primary" data-en="→ Game Page" data-ru="→ Страница игры">→ Game Page</a>
-          <a href="https://t.me/CPAHb_dev" class="btn-ghost" target="_blank" data-en="Follow Updates" data-ru="Следить">Follow Updates</a>
+    <div class="game-card">
+      <div class="game-preview">
+        <div class="preview-container">
+          <img src="game.gif" alt="OUTPATIENT gameplay" class="game-gif">
+          <div class="preview-overlay"></div>
+        </div>
+        <div class="game-status">
+          <span class="status-dot"></span>
+          ACTIVE DEVELOPMENT
         </div>
       </div>
-      <div class="featured-right">
-        <!--
-          REPLACE src WITH YOUR GITHUB GIF URL:
-          <img src="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/game.gif" alt="OUTPATIENT gameplay">
-        -->
-        <img src="game.gif" alt="OUTPATIENT gameplay preview">
-        <div class="gif-overlay"></div>
+
+      <div class="game-info">
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-label">Genre</div>
+            <div class="info-value">Roguelike</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Engine</div>
+            <div class="info-value">Unity</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Platform</div>
+            <div class="info-value">PC / Mobile</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Status</div>
+            <div class="info-value">Pre-Alpha</div>
+          </div>
+        </div>
+
+        <div class="game-desc">
+          <p>
+            A Unity-powered roguelike with procedurally generated levels,
+            tactical combat, and permanent consequences. Built from scratch
+            with custom mechanics and no asset flips.
+          </p>
+          <p>
+            Follow development updates, see behind-the-scenes progress,
+            and join the community on Telegram.
+          </p>
+        </div>
+
+        <div class="game-actions">
+          <a href="https://t.me/CPAHb_dev" target="_blank" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+            </svg>
+            <span>Join Telegram</span>
+          </a>
+          <a href="games.html" class="btn btn-ghost">View All Games</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SERVICES STRIP ══ -->
-<div class="services-strip">
-  <div class="strip-grid">
-    <a href="studio.html#gamedev" class="strip-item hov-target">
-      <div class="strip-num">01</div>
-      <div class="strip-title" data-en="GAME DEV" data-ru="РАЗРАБОТКА ИГР">GAME DEV</div>
-      <div class="strip-desc"
-           data-en="Mobile, PC, browser — full cycle on Unity."
-           data-ru="Мобилки, PC, браузер — полный цикл на Unity.">
-        Mobile, PC, browser — full cycle on Unity.
+<!-- Studio Section -->
+<section id="studio" class="studio-section">
+  <div class="section-container">
+    <div class="studio-grid">
+      <div class="studio-content">
+        <div class="section-label">
+          <div class="label-line"></div>
+          ABOUT THE STUDIO
+        </div>
+        <h2 class="section-title">
+          ONE <span class="title-outline">DEVELOPER</span><br>
+          FULL VISION
+        </h2>
+        <div class="studio-desc">
+          <p>
+            <strong>Danielle Choster</strong> — indie developer focused on Unity game development.
+            Building games that matter, not just games that sell.
+          </p>
+          <p>
+            From concept to deployment, every line of code, every mechanic, every pixel.
+            No teams, no committees, no diluted vision.
+          </p>
+        </div>
       </div>
-      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
-    </a>
-    <a href="studio.html#appdev" class="strip-item hov-target">
-      <div class="strip-num">02</div>
-      <div class="strip-title" data-en="APP DEV" data-ru="ПРИЛОЖЕНИЯ">APP DEV</div>
-      <div class="strip-desc"
-           data-en="Android & iOS apps. Lean and built right."
-           data-ru="Android и iOS приложения. Компактно и правильно.">
-        Android & iOS apps. Lean and built right.
-      </div>
-      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
-    </a>
-    <a href="boldandeasy.html" class="strip-item hov-target">
-      <div class="strip-num">03</div>
-      <div class="strip-title" data-en="BOLD &amp; EASY" data-ru="BOLD &amp; EASY">BOLD &amp; EASY</div>
-      <div class="strip-desc"
-           data-en="Where it all started — Telegram ecosystem &amp; app."
-           data-ru="Откуда всё началось — экосистема и приложение в Telegram.">
-        Where it all started — Telegram ecosystem & app.
-      </div>
-      <span class="strip-arrow" data-en="LEARN MORE →" data-ru="ПОДРОБНЕЕ →">LEARN MORE →</span>
-    </a>
-  </div>
-</div>
 
-<!-- ══ CONTACT STRIP ══ -->
-<div class="contact-strip">
-  <div class="section-wrap">
-    <div class="contact-strip-inner reveal">
-      <div class="contact-strip-text">
-        <h3 data-en="GOT AN IDEA?" data-ru="ЕСТЬ ИДЕЯ?">GOT AN IDEA?</h3>
-        <p data-en="Game collab, app project, or just want to talk — hit me up directly." data-ru="Коллаборация, проект, или просто поговорить — пиши напрямую.">
-          Game collab, app project, or just want to talk — hit me up directly.
-        </p>
+      <div class="studio-stats">
+        <div class="stat-card">
+          <div class="stat-value">2+</div>
+          <div class="stat-label">Years Active</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Unity Focused</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">∞</div>
+          <div class="stat-label">Commitment</div>
+        </div>
       </div>
-      <a href="contact.html" class="btn-primary" data-en="→ Let's Talk" data-ru="→ Написать">→ Let's Talk</a>
+    </div>
+
+    <div class="tech-stack">
+      <div class="tech-label">TECH STACK</div>
+      <div class="tech-items">
+        <span class="tech-item">Unity</span>
+        <span class="tech-item">C#</span>
+        <span class="tech-item">Git</span>
+        <span class="tech-item">Blender</span>
+        <span class="tech-item">Photoshop</span>
+        <span class="tech-item">Android SDK</span>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ══ FOOTER ══ -->
-<footer>
-  <div>
-    <div class="footer-logo">SRAN.DEV</div>
-    <div class="footer-copy" data-en="© 2024-2026 Danielle Choster · boldandeasy.ru" data-ru="© 2025 Danielle Choster · boldandeasy.ru">© 2025 Danielle Choster · boldandeasy.ru</div>
+<!-- Contact CTA -->
+<section class="cta-section">
+  <div class="section-container">
+    <div class="cta-content">
+      <h2 class="cta-title">Got a game idea?</h2>
+      <p class="cta-desc">Open for collaborations, commissions, and interesting projects.</p>
+      <a href="contact.html" class="btn btn-primary btn-large">
+        <span>Get In Touch</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
   </div>
-  <a href="https://hits.sh/Boldandeasy.ru/"><img alt="Hits" src="https://hits.sh/Boldandeasy.ru.svg?style=for-the-badge&color=d8670b&labelColor=1f1e1e"/></a>
-  <div class="footer-links">
-    <a href="studio.html" data-en="Studio" data-ru="Студия">Studio</a>
-    <a href="games.html" data-en="Games" data-ru="Игры">Games</a>
-    <a href="boldandeasy.html" data-en="Bold&amp;Easy" data-ru="Bold&amp;Easy">Bold&amp;Easy</a>
-    <a href="contact.html" data-en="Contact" data-ru="Контакты">Contact</a>
-    <a href="https://t.me/DanielleChoster" target="_blank">Telegram</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <div class="footer-logo">SRAN.DEV</div>
+      <div class="footer-copy">© 2024-2026 Danielle Choster</div>
+    </div>
+    <div class="footer-links">
+      <a href="studio.html">Studio</a>
+      <a href="games.html">Games</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://t.me/DanielleChoster" target="_blank">Telegram</a>
+    </div>
   </div>
 </footer>
 
-<script src="config.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
