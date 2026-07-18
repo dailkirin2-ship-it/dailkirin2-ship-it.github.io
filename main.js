@@ -288,3 +288,75 @@ window.addEventListener('scroll', () => {
 
 console.log('%c🎮 SRAN.DEV ', 'background: #FF6B00; color: #000; font-size: 20px; font-weight: bold; padding: 10px;');
 console.log('%cGame Studio by Danielle Choster', 'color: #888; font-size: 12px;');
+
+// ── MOBILE MENU TOGGLE ──
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+if (burger && mobileMenu) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close menu when clicking a link
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+  });
+}
+
+// ── LANGUAGE SWITCHER ──
+const LANG_KEY = 'srandev_lang';
+let currentLang = localStorage.getItem(LANG_KEY) || 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem(LANG_KEY, lang);
+
+  // Update all elements with data-en/data-ru
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = text;
+      } else {
+        el.innerHTML = text;
+      }
+    }
+  });
+
+  // Update active language buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
+// Apply language on load
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(currentLang);
+
+  // Add click handlers to language buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLang(btn.getAttribute('data-lang'));
+    });
+  });
+});
+
+// Make setLang available globally
+window.setLang = setLang;
