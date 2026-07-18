@@ -3,348 +3,564 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bold & Easy — sran.dev</title>
-<meta name="description" content="Bold & Easy — the brand behind sran.dev. Telegram Stars, BE App, community.">
-<meta name="theme-color" content="#E8621A">
+<title>Bold & Easy — SRAN.DEV</title>
+<meta name="description" content="Bold & Easy — The brand behind SRAN.DEV. Telegram Stars, BE App, and community.">
+<meta name="theme-color" content="#FF6B00">
 <link rel="stylesheet" href="main.css">
-<style>
-/* PAGE HEADER */
-.page-header {
-  padding: 160px 48px 80px;
-  position: relative; z-index: 1;
-  border-bottom: 1px solid var(--border);
-}
-.page-header-inner {
-  max-width: 1180px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: end;
-}
-.be-logo-xl {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(72px, 14vw, 160px);
-  letter-spacing: 4px; line-height: 0.85;
-  color: var(--text);
-}
-.be-logo-xl em {
-  font-style: normal;
-  -webkit-text-stroke: 1.5px var(--orange);
-  color: transparent;
-}
-.be-tagline {
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 4px; text-transform: uppercase;
-  color: var(--orange); margin-top: 16px;
-}
-.page-intro {
-  font-size: 15px; font-weight: 300;
-  color: var(--faint); line-height: 1.85;
-}
-
-/* ══ ECOSYSTEM ITEMS ══ */
-.eco-section { position: relative; z-index: 1; }
-
-.eco-list {
-  display: flex; flex-direction: column; gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 12px; overflow: hidden;
-  margin-top: 56px;
-}
-
-.eco-item {
-  background: var(--card);
-  display: grid; grid-template-columns: 72px 1fr auto;
-  align-items: center; gap: 28px;
-  padding: 28px 32px;
-  text-decoration: none; color: var(--text);
-  transition: background 0.22s;
-  position: relative;
-}
-.eco-item::before {
-  content: ''; position: absolute;
-  left: 0; top: 0; bottom: 0; width: 2px;
-  background: var(--orange);
-  opacity: 0; transition: opacity 0.22s;
-}
-.eco-item:hover { background: var(--card2); }
-.eco-item:hover::before { opacity: 1; }
-
-.eco-icon {
-  width: 52px; height: 52px;
-  background: rgba(232,98,26,0.08);
-  border: 1px solid var(--border-warm);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; flex-shrink: 0;
-}
-.eco-body { min-width: 0; }
-.eco-label {
-  font-size: 9px; font-weight: 700;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 4px;
-}
-.eco-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 26px; letter-spacing: 1.5px;
-  color: var(--text); margin-bottom: 3px;
-}
-.eco-desc {
-  font-size: 12px; color: var(--muted);
-  font-weight: 300; line-height: 1.5;
-}
-.eco-arrow {
-  color: var(--muted); font-size: 18px;
-  transition: all 0.2s; flex-shrink: 0;
-}
-.eco-item:hover .eco-arrow { color: var(--orange); transform: translateX(4px); }
-
-/* ══ BE APP DOWNLOAD ══ */
-.be-app-section {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  position: relative; z-index: 1;
-}
-.be-app-card {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
-}
-.be-app-info { }
-.be-app-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 6vw, 80px);
-  letter-spacing: 2px; line-height: 0.9;
-  color: var(--text); margin-bottom: 20px;
-}
-.be-app-desc {
-  font-size: 14px; font-weight: 300;
-  color: var(--faint); line-height: 1.85;
-  margin-bottom: 32px;
-}
-.be-features {
-  display: flex; flex-direction: column; gap: 12px;
-}
-.be-feat {
-  display: flex; align-items: flex-start; gap: 14px;
-  padding: 14px 16px;
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 8px;
-  transition: border-color 0.2s;
-}
-.be-feat:hover { border-color: var(--border-warm); }
-.bf-icon {
-  width: 36px; height: 36px;
-  background: rgba(232,98,26,0.08);
-  border: 1px solid var(--border-warm);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 15px; flex-shrink: 0;
-}
-.bf-text h4 { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
-.bf-text p { font-size: 11px; color: var(--muted); line-height: 1.5; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .page-header { padding: 110px 20px 60px; }
-  .page-header-inner { grid-template-columns: 1fr; gap: 28px; }
-  .eco-item { grid-template-columns: 52px 1fr auto; gap: 16px; padding: 22px 20px; }
-  .be-app-card { grid-template-columns: 1fr; }
-}
-</style>
 </head>
 <body>
 
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="curRing"></div>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-
-<nav id="mainNav">
+<!-- Navigation -->
+<nav class="nav">
   <a href="index.html" class="nav-logo">
-    <span class="nav-dot"></span>
-    SRAN<span style="color:var(--orange)">.</span>DEV
+    <span class="logo-dot"></span>
+    <span>SRAN.DEV</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html" data-en="Home" data-ru="Главная">Home</a></li>
-    <li><a href="studio.html" data-en="Studio" data-ru="Студия">Studio</a></li>
-    <li><a href="games.html" data-en="Games" data-ru="Игры">Games</a></li>
-    <li><a href="boldandeasy.html" data-en="Bold&amp;Easy" data-ru="Bold&amp;Easy">Bold&amp;Easy</a></li>
-    <li><a href="contact.html" data-en="Contact" data-ru="Контакты">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
-    </div>
-    <a href="https://t.me/DanielleChoster" class="btn-nav-tg" target="_blank">↗ Telegram</a>
-    <div class="mobile-toggle" id="burger"><span></span><span></span><span></span></div>
+  <div class="nav-links">
+    <a href="index.html#game" class="nav-link">Game</a>
+    <a href="index.html#studio" class="nav-link">Studio</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  <div class="nav-social">
+    <a href="https://t.me/sran_dev" target="_blank" class="social-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+      </svg>
+      Updates
+    </a>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" data-en="Home" data-ru="Главная">Home</a>
-  <a href="studio.html" data-en="Studio" data-ru="Студия">Studio</a>
-  <a href="games.html" data-en="Games" data-ru="Игры">Games</a>
-  <a href="boldandeasy.html" data-en="Bold&amp;Easy" data-ru="Bold&amp;Easy">Bold&amp;Easy</a>
-  <a href="contact.html" data-en="Contact" data-ru="Контакты">Contact</a>
-  <div class="lang-row">
-    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
-  </div>
-</div>
 
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <div class="page-header-inner">
-    <div class="reveal">
-      <div class="be-logo-xl">BOLD<br><em>&</em><br>EASY</div>
-      <div class="be-tagline" data-en="Be bolder. Be simpler." data-ru="Будь смелее. Будь проще.">Be bolder. Be simpler.</div>
-    </div>
-    <p class="page-intro reveal"
-       data-en="Bold & Easy is the original brand behind sran.dev — started as a Telegram Stars ecosystem, grew into an app, and now powers the identity behind everything the studio builds."
-       data-ru="Bold & Easy — оригинальный бренд за sran.dev. Начинался как экосистема Telegram Stars, вырос в приложение, а теперь лежит в основе идентичности всего, что строит студия.">
-      Bold & Easy is the original brand behind sran.dev — started as a Telegram Stars ecosystem, grew into an app, and now powers the identity behind everything the studio builds.
-    </p>
-  </div>
-</div>
-
-<!-- ECOSYSTEM ITEMS -->
-<section class="eco-section">
-  <div class="section-wrap">
-    <div class="reveal">
-      <div class="s-label" data-en="The ecosystem" data-ru="Экосистема">The ecosystem</div>
-      <h2 class="s-title" data-en="ALL <em>LINKS</em>" data-ru="ВСЕ <em>ССЫЛКИ</em>">ALL <em>LINKS</em></h2>
-    </div>
-
-    <div class="eco-list reveal">
-      <!--
-        ════════════════════════════════════════
-        LINKS — replace href with your actual URLs
-        ════════════════════════════════════════
-      -->
-      <a href="https://t.me/BEISTARS_bot" class="eco-item hov-target" target="_blank">
-        <div class="eco-icon">🤖</div>
-        <div class="eco-body">
-          <div class="eco-label" data-en="Telegram Bot" data-ru="Telegram бот">Telegram Bot</div>
-          <div class="eco-name">BE STARS</div>
-          <div class="eco-desc" data-en="Telegram Stars — fast, cheap, no markup. The bot that started Bold & Easy." data-ru="Звёзды Telegram — быстро, дёшево, без накруток. Бот, с которого всё началось.">Telegram Stars — fast, cheap, no markup. The bot that started Bold & Easy.</div>
+<!-- Bold & Easy Header -->
+<section class="be-header">
+  <div class="section-container">
+    <div class="be-header-grid">
+      <div class="be-branding">
+        <div class="be-logo">
+          <span class="be-bold">BOLD</span>
+          <span class="be-amp">&</span>
+          <span class="be-easy">EASY</span>
         </div>
-        <div class="eco-arrow">→</div>
-      </a>
+        <div class="be-tagline">Be bolder. Be simpler.</div>
+      </div>
 
-      <a href="https://t.me/CPAHb_dev" class="eco-item hov-target" target="_blank">
-        <div class="eco-icon">📰</div>
-        <div class="eco-body">
-          <div class="eco-label" data-en="Telegram Channel" data-ru="Telegram канал">Telegram Channel</div>
-          <div class="eco-name">BE NEWS</div>
-          <div class="eco-desc" data-en="Official channel — studio updates, game news, tech, and the occasional meme." data-ru="Официальный канал — обновления студии, новости игр, технологии и мемы.">Official channel — studio updates, game news, tech, and the occasional meme.</div>
-        </div>
-        <div class="eco-arrow">→</div>
-      </a>
-
-      <a href="https://t.me/beistarsreviews" class="eco-item hov-target" target="_blank">
-        <div class="eco-icon">💬</div>
-        <div class="eco-body">
-          <div class="eco-label" data-en="Community" data-ru="Сообщество">Community</div>
-          <div class="eco-name">BE CHAT</div>
-          <div class="eco-desc" data-en="Live chat and honest reviews. No bots, no fakes — just the community." data-ru="Живой чат и честные отзывы. Без ботов и накруток — только свои.">Live chat and honest reviews. No bots, no fakes — just the community.</div>
-        </div>
-        <div class="eco-arrow">→</div>
-      </a>
-
-      <a href="boldandeasy.apk" class="eco-item hov-target" download>
-        <div class="eco-icon">📱</div>
-        <div class="eco-body">
-          <div class="eco-label" data-en="Android App" data-ru="Android приложение">Android App</div>
-          <div class="eco-name">BE APP</div>
-          <div class="eco-desc" data-en="Free Android APK — AI assistant, habit tracker, Pomodoro, currency converter." data-ru="Бесплатный Android APK — ИИ ассистент, трекер привычек, помодоро, конвертер валют.">Free Android APK — AI assistant, habit tracker, Pomodoro, currency converter.</div>
-        </div>
-        <div class="eco-arrow">↓</div>
-      </a>
-
-      <!--
-        ADD MORE LINKS:
-        Copy an .eco-item block above and change:
-          - href
-          - eco-icon emoji
-          - eco-label (category)
-          - eco-name (title)
-          - eco-desc (description)
-          - eco-arrow (→ for link, ↓ for download)
-      -->
+      <div class="be-intro">
+        <p>
+          <strong>Bold & Easy</strong> is the original brand that powers <strong>SRAN.DEV</strong>.
+          What started as a Telegram Stars ecosystem evolved into a complete app and community.
+        </p>
+        <p>
+          The philosophy is simple: bold moves, simple execution. No unnecessary complexity,
+          just tools that work.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BE APP FEATURES -->
-<div class="be-app-section">
-  <div class="section-wrap">
-    <div class="be-app-card">
-      <div class="reveal">
-        <div class="s-label" data-en="The App" data-ru="Приложение">The App</div>
-        <div class="be-app-title" data-en="BE APP<br><span style='color:var(--orange)'>FOR<br>ANDROID</span>" data-ru="BE APP<br><span style='color:var(--orange)'>ДЛЯ<br>ANDROID</span>">BE APP<br><span style="color:var(--orange)">FOR<br>ANDROID</span></div>
-        <p class="be-app-desc"
-           data-en="A utility app built with the Bold & Easy spirit. Everything you need in one place — AI, focus tools, habits, and currency rates."
-           data-ru="Приложение-утилита в духе Bold & Easy. Всё что нужно в одном месте — ИИ, инструменты фокуса, привычки и курсы валют.">
-          A utility app built with the Bold & Easy spirit. Everything you need in one place — AI, focus tools, habits, and currency rates.
+<!-- Ecosystem Links -->
+<section class="ecosystem-section">
+  <div class="section-container">
+    <div class="section-label">
+      <div class="label-line"></div>
+      THE ECOSYSTEM
+    </div>
+    <h2 class="section-title">
+      ALL <span class="title-outline">LINKS</span>
+    </h2>
+
+    <div class="ecosystem-grid">
+      <!-- BE Stars Bot -->
+      <a href="https://t.me/BEISTARS_bot" target="_blank" class="eco-card">
+        <div class="eco-card-icon">🤖</div>
+        <div class="eco-card-content">
+          <div class="eco-card-label">TELEGRAM BOT</div>
+          <div class="eco-card-title">BE STARS</div>
+          <div class="eco-card-desc">
+            Telegram Stars exchange — fast, cheap, no markup.
+            The bot that started Bold & Easy.
+          </div>
+        </div>
+        <div class="eco-card-arrow">→</div>
+      </a>
+
+      <!-- SRAN.DEV Channel -->
+      <a href="https://t.me/sran_dev" target="_blank" class="eco-card featured">
+        <div class="eco-card-icon">📢</div>
+        <div class="eco-card-content">
+          <div class="eco-card-label">TELEGRAM CHANNEL</div>
+          <div class="eco-card-title">SRAN.DEV</div>
+          <div class="eco-card-desc">
+            Official studio channel — game development updates,
+            behind-the-scenes, and tech insights.
+          </div>
+        </div>
+        <div class="eco-card-arrow">→</div>
+      </a>
+
+      <!-- BE Chat -->
+      <a href="https://t.me/beistarsreviews" target="_blank" class="eco-card">
+        <div class="eco-card-icon">💬</div>
+        <div class="eco-card-content">
+          <div class="eco-card-label">COMMUNITY</div>
+          <div class="eco-card-title">BE CHAT</div>
+          <div class="eco-card-desc">
+            Live community chat and reviews.
+            No bots, no fakes — just real people.
+          </div>
+        </div>
+        <div class="eco-card-arrow">→</div>
+      </a>
+
+      <!-- BE App -->
+      <a href="boldandeasy.apk" download class="eco-card">
+        <div class="eco-card-icon">📱</div>
+        <div class="eco-card-content">
+          <div class="eco-card-label">ANDROID APP</div>
+          <div class="eco-card-title">BE APP</div>
+          <div class="eco-card-desc">
+            Free Android APK — AI assistant, habit tracker,
+            Pomodoro timer, currency converter.
+          </div>
+        </div>
+        <div class="eco-card-arrow">↓</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BE App Features -->
+<section class="app-section">
+  <div class="section-container">
+    <div class="app-grid">
+      <div class="app-info">
+        <div class="section-label">
+          <div class="label-line"></div>
+          THE APP
+        </div>
+
+        <h2 class="app-title">
+          BE APP<br>
+          <span class="title-orange">FOR ANDROID</span>
+        </h2>
+
+        <p class="app-desc">
+          A utility app built with the Bold & Easy philosophy by <strong>SRAN.DEV</strong>.
+          Everything you need in one place — AI assistant, productivity tools,
+          habit tracking, and real-time currency exchange.
         </p>
-        <a href="boldandeasy.apk" class="btn-primary" download data-en="⬇ Download APK (Free)" data-ru="⬇ Скачать APK (бесплатно)">⬇ Download APK (Free)</a>
+
+        <div class="app-stats">
+          <div class="stat">
+            <div class="stat-value">FREE</div>
+            <div class="stat-label">No subscription</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">5+</div>
+            <div class="stat-label">Tools included</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">NO</div>
+            <div class="stat-label">VPN needed</div>
+          </div>
+        </div>
+
+        <a href="boldandeasy.apk" download class="btn btn-primary btn-large">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Download APK</span>
+        </a>
       </div>
-      <div class="be-features reveal reveal-d1">
-        <div class="be-feat hov-target">
-          <div class="bf-icon">🤖</div>
-          <div class="bf-text">
-            <h4 data-en="AI Assistant" data-ru="ИИ ассистент">AI Assistant</h4>
-            <p data-en="Answers anything. Works without VPN in Russia." data-ru="Отвечает на всё. Работает без VPN в России.">Answers anything. Works without VPN in Russia.</p>
+
+      <div class="app-features">
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <div class="feature-content">
+            <div class="feature-title">AI Assistant</div>
+            <div class="feature-desc">
+              Powered AI that answers anything. Works in Russia without VPN.
+            </div>
           </div>
         </div>
-        <div class="be-feat hov-target">
-          <div class="bf-icon">⏱</div>
-          <div class="bf-text">
-            <h4 data-en="Pomodoro Timer" data-ru="Помодоро таймер">Pomodoro Timer</h4>
-            <p data-en="25/5 minute focus method. Classic, effective." data-ru="Метод 25/5 минут. Классика, которая работает.">25/5 minute focus method. Classic, effective.</p>
+
+        <div class="feature-card">
+          <div class="feature-icon">⏱</div>
+          <div class="feature-content">
+            <div class="feature-title">Pomodoro Timer</div>
+            <div class="feature-desc">
+              Classic 25/5 minute focus method for maximum productivity.
+            </div>
           </div>
         </div>
-        <div class="be-feat hov-target">
-          <div class="bf-icon">✅</div>
-          <div class="bf-text">
-            <h4 data-en="Habit Tracker" data-ru="Трекер привычек">Habit Tracker</h4>
-            <p data-en="Track streaks, build habits, stay consistent." data-ru="Трекай серии, стройте привычки, будь последовательным.">Track streaks, build habits, stay consistent.</p>
+
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <div class="feature-content">
+            <div class="feature-title">Habit Tracker</div>
+            <div class="feature-desc">
+              Track daily habits, build streaks, stay consistent.
+            </div>
           </div>
         </div>
-        <div class="be-feat hov-target">
-          <div class="bf-icon">💱</div>
-          <div class="bf-text">
-            <h4 data-en="Currency Converter" data-ru="Конвертер валют">Currency Converter</h4>
-            <p data-en="RUB · USD · EUR · USDT — live rates." data-ru="RUB · USD · EUR · USDT — актуальные курсы.">RUB · USD · EUR · USDT — live rates.</p>
+
+        <div class="feature-card">
+          <div class="feature-icon">💱</div>
+          <div class="feature-content">
+            <div class="feature-title">Currency Converter</div>
+            <div class="feature-desc">
+              RUB, USD, EUR, USDT — live exchange rates updated daily.
+            </div>
           </div>
         </div>
-        <div class="be-feat hov-target">
-          <div class="bf-icon">📝</div>
-          <div class="bf-text">
-            <h4 data-en="Quick Notes" data-ru="Быстрые заметки">Quick Notes</h4>
-            <p data-en="Notes and decision generator for the indecisive." data-ru="Заметки и генератор решений для нерешительных.">Notes and decision generator for the indecisive.</p>
+
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <div class="feature-content">
+            <div class="feature-title">Quick Notes</div>
+            <div class="feature-desc">
+              Simple note-taking with decision generator for quick choices.
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<footer>
-  <div>
-    <div class="footer-logo">SRAN.DEV</div>
-    <div class="footer-copy" data-en="© 2024-2026 Danielle Choster · boldandeasy.ru" data-ru="© 2025 Danielle Choster · boldandeasy.ru">© 2025 Danielle Choster · boldandeasy.ru</div>
-  </div>
-  <a href="https://hits.sh/Boldandeasy.ru/"><img alt="Hits" src="https://hits.sh/Boldandeasy.ru.svg?style=for-the-badge&color=d8670b&labelColor=1f1e1e"/></a>
-  <div class="footer-links">
-    <a href="studio.html" data-en="Studio" data-ru="Студия">Studio</a>
-    <a href="games.html" data-en="Games" data-ru="Игры">Games</a>
-    <a href="boldandeasy.html" data-en="Bold&amp;Easy" data-ru="Bold&amp;Easy">Bold&amp;Easy</a>
-    <a href="contact.html" data-en="Contact" data-ru="Контакты">Contact</a>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <div class="footer-logo">SRAN.DEV</div>
+      <div class="footer-copy">© 2024-2026 Danielle Choster</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#studio">Studio</a>
+      <a href="games.html">Games</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://t.me/sran_dev" target="_blank">Telegram</a>
+    </div>
   </div>
 </footer>
 
-<script src="config.js"></script>
+<style>
+/* Bold & Easy Page Specific Styles */
+
+/* BE Header */
+.be-header {
+  padding: 140px 0 80px;
+  border-bottom: 1px solid var(--border);
+}
+
+.be-header-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+
+.be-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.be-bold,
+.be-easy {
+  font-size: clamp(64px, 10vw, 120px);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -2px;
+  color: var(--text);
+}
+
+.be-amp {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--orange);
+  line-height: 0.85;
+}
+
+.be-tagline {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.be-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.be-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.be-intro strong {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* Ecosystem Section */
+.ecosystem-section {
+  padding: 80px 0;
+  background: var(--black-light);
+  border-bottom: 1px solid var(--border);
+}
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.eco-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 32px;
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.eco-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--orange);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.eco-card:hover {
+  border-color: var(--border-glow);
+  transform: translateX(4px);
+}
+
+.eco-card:hover::before {
+  opacity: 1;
+}
+
+.eco-card.featured {
+  border-color: var(--border-glow);
+  background: rgba(255, 107, 0, 0.05);
+}
+
+.eco-card-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 107, 0, 0.1);
+  border: 1px solid var(--border-glow);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.eco-card-content {
+  flex: 1;
+}
+
+.eco-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.eco-card-title {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.eco-card-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.eco-card-arrow {
+  font-size: 24px;
+  color: var(--orange);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.eco-card:hover .eco-card-arrow {
+  transform: translateX(6px);
+}
+
+/* App Section */
+.app-section {
+  padding: 80px 0;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.app-title {
+  font-size: clamp(48px, 7vw, 80px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 28px;
+}
+
+.title-orange {
+  color: var(--orange);
+}
+
+.app-desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.app-desc strong {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.app-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat {
+  padding: 20px;
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.app-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--border-glow);
+  background: var(--black-light);
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 107, 0, 0.1);
+  border: 1px solid var(--border-glow);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.feature-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .be-header-grid,
+  .ecosystem-grid,
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .app-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .be-header {
+    padding: 100px 0 60px;
+  }
+
+  .ecosystem-section,
+  .app-section {
+    padding: 60px 0;
+  }
+
+  .app-stats {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
 <script src="main.js"></script>
 </body>
 </html>
